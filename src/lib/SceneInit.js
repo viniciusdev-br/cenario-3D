@@ -16,7 +16,6 @@ export default class SceneInit {
     this.canvasId = canvasId;
 
     // NOTE: Additional components.
-    this.clock = undefined;
     this.stats = undefined;
     this.controls = undefined;
 
@@ -33,7 +32,7 @@ export default class SceneInit {
       1,
       500
     );
-    this.camera.position.z = 16;
+    this.camera.position.z = 30;
 
     // NOTE: Specify a canvas which is already created in the HTML.
     const canvas = document.getElementById(this.canvasId);
@@ -52,30 +51,7 @@ export default class SceneInit {
     this.stats = Stats();
     document.body.appendChild(this.stats.dom);
 
-    // HIDE LIGHTING FOR DEMO.
-    // ambient light which is for the whole scene
-    // this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    // this.ambientLight.castShadow = true;
-    // this.scene.add(this.ambientLight);
-    // spot light which is illuminating the chart directly
-    // this.spotLight = new THREE.SpotLight(0xffffff, 1);
-    // this.spotLight.castShadow = true;
-    // this.spotLight.position.set(0, 64, 32);
-    // this.scene.add(this.spotLight);
-
-    // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
-
-    // NOTE: Load space background.
-    // this.loader = new THREE.TextureLoader();
-    // this.scene.background = this.loader.load('./pics/space.jpeg');
-
-    // NOTE: Declare uniforms to pass into glsl shaders.
-    // this.uniforms = {
-    //   u_time: { type: 'f', value: 1.0 },
-    //   colorB: { type: 'vec3', value: new THREE.Color(0xfff000) },
-    //   colorA: { type: 'vec3', value: new THREE.Color(0xffffff) },
-    // };
   }
 
   animate() {
